@@ -1,5 +1,5 @@
 {
-  "name": "graze/parallel-process",
+  "name": "ydistri/parallel-process",
   "description": "run a pool of processes simultaneously",
   "keywords": [
     "graze",
