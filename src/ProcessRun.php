@@ -88,7 +88,7 @@ class ProcessRun implements RunInterface, OutputterInterface, PrioritisedInterfa
                     $this->lastType = $type;
                     foreach (explode("\n", $data) as $line) {
                         $line = rtrim($line);
-                        if (mb_strlen($line) > 0) {
+                        if (strlen($line) > 0) {
                             $this->last = $line;
                             if ($this->updateOnProcessOutput) {
                                 $this->dispatch(RunEvent::UPDATED, new RunEvent($this));

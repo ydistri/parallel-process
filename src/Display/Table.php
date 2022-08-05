@@ -83,7 +83,7 @@ class Table
     private function formatRow(RunInterface $run, $status)
     {
         $tags = $this->formatTags($run->getTags());
-        $extra = ($this->showOutput && $run instanceof OutputterInterface && mb_strlen($run->getLastMessage()) > 0)
+        $extra = ($this->showOutput && $run instanceof OutputterInterface && strlen($run->getLastMessage()) > 0)
             ? '  ' . $this->terminal->filter($run->getLastMessage())
             : '';
         return sprintf("%s (<comment>%6.2fs</comment>) %s%s", $tags, $run->getDuration(), $status, $extra);
@@ -110,12 +110,12 @@ class Table
                               ->setPosition($progress[0])
                               ->setMax($progress[1])
                               ->render()
-                        : mb_substr(static::SPINNER, $spinner++, 1);
+                        : substr(static::SPINNER, $spinner++, 1);
                     $this->rows[$index] = $this->formatRow(
                         $run,
                         $status
                     );
-                    if ($spinner > mb_strlen(static::SPINNER) - 1) {
+                    if ($spinner > strlen(static::SPINNER) - 1) {
                         $spinner = 0;
                     }
                     $this->render();

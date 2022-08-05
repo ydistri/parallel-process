@@ -114,7 +114,7 @@ class CallbackRun implements RunInterface, OutputterInterface, PrioritisedInterf
             foreach ($output as $line) {
                 if (is_string($line)) {
                     $line = rtrim($line);
-                    if (mb_strlen($line) > 0) {
+                    if (strlen($line) > 0) {
                         $this->last = $line;
                         $this->dispatch(RunEvent::UPDATED, new RunEvent($this));
                     }

@@ -25,7 +25,7 @@ trait TagsTrait
      */
     protected function updateRowKeyLengths(array $data = [])
     {
-        $lengths = array_map('mb_strlen', $data);
+        $lengths = array_map('strlen', $data);
 
         $keys = array_merge(array_keys($lengths), array_keys($this->maxLengths));
 
